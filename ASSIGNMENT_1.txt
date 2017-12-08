@@ -1,0 +1,250 @@
+     ASSIGNMENT 1 
+PYTHON 
+SUBMITTED BY:
+JOHN MOHD BHAT
+
+
+
+(C:\Users\admin\Anaconda2) C:\Users\admin>
+(C:\Users\admin\Anaconda2) C:\Users\admin>python
+Python 2.7.12 |Anaconda 4.2.0 (64-bit)| (default, Jun 29 2016, 11:07:13) [MSC v.1500 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+Anaconda is brought to you by Continuum Analytics.
+Please check out: http://continuum.io/thanks and https://anaconda.org
+>>>
+>>>
+#1	What is 7 to the power of 4?
+>>> 7**4
+2401
+>>>
+>>>
+>>>
+#2 Split this string:"Hi there Sam!"
+...
+>>> s= "Hi there Sam!"
+>>>
+>>> s.split()
+['Hi', 'there', 'Sam!']
+>>>
+>>>
+#3 Create a basic function that returns True if the word 'dog' is contained
+... #in the input string. Don't worry about edge cases like a punctuation being
+... #attached to the word dog, but do account for capitalization.
+... #'Is there a dog here?'
+...
+>>> def my_func(x):
+...
+...     if "DOG" in x.upper():
+...         return("TRUE")
+...     else:
+...         return("NO")
+...
+...
+>>> x='Is there a dog here?'
+>>>
+>>> my_func(x)
+'TRUE'
+>>>
+>>>
+#4	Create a function that counts the number of times the word "dog" occurs in a string. Again ignore edge cases. “This dog runs faster than the other dog dude!”
+
+>>> def my_func1(x):
+...     count=0
+...     y=x.split()
+...     for i in y:
+...         if "DOG" == i.upper():
+...            count= count + 1
+...         else:
+...            continue
+...     if count>=1:
+...         return(count)
+...     else:
+...         return("Not Present")
+...
+>>>
+... x="This dog runs faster than the other dog dude!"
+>>> my_func1(x)
+2
+>>>
+>>>
+>>>
+>>>
+#5 You are driving a little too fast, and a police officer stops you.
+... #Write a function to return one of 3 possible results: "No ticket",
+... #"Small ticket", or "Big Ticket". If your speed is 60 or less, the result is
+... # "No Ticket". If speed is between 61 and 80 inclusive, the result is "Small
+... # Ticket". If speed is 81 or more, the result is "Big Ticket".
+... # Unless it is your birthday (encoded as a boolean value in the parameters
+... #of the function) -- on your birthday, your speed can be 5 higher in all cases.
+...
+>>>
+>>>
+... def speeed_func(x,y):
+...     if y==0:
+...        if x<=60:
+...            return("No Ticket")
+...        elif x>60 & x<=80:
+...            return("Small Ticket")
+...        elif x>=81 :
+...            return("Big Ticket")
+...     elif y==1:
+...        if x<=60+5:
+...            return("No Ticket")
+...        elif x>60+5 & x<=80+5:
+...            return("Small Ticket")
+...        elif x>=81+5 :
+...            return("Big Ticket")
+...     else:
+...         return("please enter data in speed,birthday( 1|0 )format")
+...
+>>> speeed_func(65,1)
+'No Ticket'
+>>>
+>>>
+>>>
+>>>
+#6 Use lambda expressions and the filter() function to filter out words
+... #from a list that don't start with the letter 's'. For example:seq = ['soup','dog','salad','cat','great']
+...
+>>> seq = ['soup','dog','salad','cat','great']
+>>>
+>>>
+>>> filter(lambda item: item[0:][0] not in ("s"),seq)
+['dog', 'cat', 'great']
+>>>
+>>>
+>>>
+>>>
+ #7 Write the code to create a list with seven colors of rainbow?
+... rainbow=["violet","indigo","blue","green","yellow","orange","red"]
+>>> rainbow
+['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red']
+>>>
+>>>
+>>>
+>>>
+#8 Write the code to add 2 string in 2 different ways?
+...
+>>> a="Hello  "
+>>> b="baby!"
+>>> a+b        #string addition
+'Hello  baby!'
+>>>
+>>> xx=lambda a,b:a+b
+>>> xx("Hello ", "baby")    #using lambda function
+'Hello baby'
+>>>
+>>>
+>>>
+>>>
+ #9 What is the easiest way to print the same string 10 times?
+...
+>>> "Hi"*10
+'HiHiHiHiHiHiHiHiHiHi'
+>>>
+>>>
+#10 Write the code to add a value to an existing list?
+...
+>>> l1=[1,2,3]
+>>> l1.append(4)
+>>> l1
+[1, 2, 3, 4]
+>>>
+>>>
+ #11 Write the code to covert temperature to Celsius to Fahrenheit using lambda function ?
+...
+>>> lmb=lambda a:a*9.0/5.0 + 32
+>>>
+>>> lmb(32)
+89.6
+>>>
+>>>
+#12 Write code to take input number of the user and tell if the even / odd
+...
+>>> num=input("enter the number :" )
+enter the number :23
+>>> if num%2==0:
+...     print(num," is Even")
+... else:
+...     print(num," is Odd")
+...
+...
+(23, ' is Odd')
+>>>
+>>>
+>>>
+>>>
+ #13 How to remove the 4th element of a list?
+...
+>>> l1=[1,2,3,4,5,6]
+>>>
+>>> del l1[3]   #deleting the 4th element ia a list
+>>> l1
+[1, 2, 3, 5, 6]
+>>>
+>>>
+#14 How to insert a value in a list in the 6th position?
+...
+>>> l1.insert(5,23)
+>>> l1
+[1, 2, 3, 5, 6, 23]
+>>>
+>>>
+>>>
+#15 Identify the following data types:
+... A = (1, 2, 3)
+>>> type(A)
+<type 'tuple'>
+>>>
+>>> B = [1,2,3]
+>>> type(B)
+<type 'list'>
+>>>
+>>> C = {'Name': 'Saikat', 'Age':49}
+>>> type(C)
+<type 'dict'>
+>>>
+>>>
+>>>
+#16 Write the code to print numbers 1 to 100 using range?
+...
+>>> print(range(1,101))
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+>>>
+>>>
+>>>
+>>>
+ #17 How to display the output of a list in sorted order?
+... l2=["k","j","x","a"]
+>>> l2.sort()
+>>> print("sorted output: " ,l2)
+('sorted output: ', ['a', 'j', 'k', 'x'])
+>>>
+>>>
+>>>
+ #18 Which of the following data type is immutable?
+... Tuple  is immutable
+>>>
+>>>
+#19 How to delete all contents of a dictionary
+... dic = {'Name': 'Saikat', 'Age':49, 'Address': 'Delhi','sex':'Male'}
+>>> dic.clear()   #deleting the entire data of dictionary
+>>> dic
+{}
+>>>
+>>>
+ #20 Write the code to display largest of three number
+... a=2000000
+>>> b=5000
+>>> c=2000
+>>> #max(a,b,c)
+...
+>>> if a>b and a>c :
+...     print(a)
+... elif b>a and b>c:
+...     print(b,"is largest")
+... elif c>a and c>b:
+...     print(c,"is largest")
+...
+2000000
+>>>

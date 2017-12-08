@@ -1,0 +1,153 @@
+# -*- coding: utf-8 -*-
+"""
+assignment Regexp
+Created on Mon Feb 20 14:34:28 2017
+
+@author: John
+"""
+
+'''
+1.	Employee number: 8888000012,Date: February 20, 2017
+ Extract the Employee number and Date Using Regular Expression.
+'''
+y="Employee number: 8888000012,Date: February 20, 2017"
+
+import re
+
+r=re.findall(r'\d{10}',y)
+print(r)
+
+r1=re.findall(r'\w*\s\d{1,2},\s\d{4}',y)
+print(r1)
+
+
+
+'''
+2.	data =["surname: Ambani, prename: Anil, profession: Businessman",
+ "surname: Pandey, prename: Rahul, profession: Student"]Extract 
+ surname ,prename ,profession in the list using re.
+ '''
+data =["surname: Ambani, prename: Anil, profession: Businessman",
+ "surname: Pandey, prename: Rahul, profession: Student"]
+ 
+for i in range(len(data)):
+    rer=re.findall(r'[A-Z][a-z]*',data[i]) 
+    print(rer)
+    
+
+'''
+   3.	str=’’’Anand is Software Developer,his Salary:25000 and 
+   email:a@gmail.com;Suraj is Data Scientist his Salary:50000 and
+   email:s@gmail.com Extract Name,Salary and email using re 
+   
+ '''
+
+str='''Anand is software developer,his salary:25000 and  email:a@gmail.com;Suraj is data scientist his salary:50000 and  email:s@gmail.com '''
+rer=[]
+new=re.split(';',str)
+for i in range(len(new)):
+   rer=[]
+   rer.append(re.findall(r'[A-Z][a-z]*',new[i]) ) 
+   rer.append(re.findall(r'\d{5}',new[i]) ) 
+   re1=re.search(r"[\w.]+@[\w.]+",new[i])   
+
+   rer.append(re1.group()) 
+   print(rer)
+
+   
+   
+'''
+
+4.	Demonstrate all re Functions.
+'''
+
+
+
+
+'''
+5.	Extract minimum five prices of stock market “goog aapl fb nflx tsla” from url http://finance.yahoo.com/
+
+'''
+
+
+import yahoo_finance
+
+stock=["goog", "aapl", "fb","nflx", "tsla"]
+from yahoo_finance import Share
+open1=[]
+price=[]
+
+for lis in stock:
+    
+     yahoo=Share(lis)   #goog nflx 
+     open1.append(yahoo.get_open())
+     price.append(yahoo.get_price())  
+     
+combi=pd.DataFrame({"name":stock,"open":open1,"price":price})   
+
+print(combi)
+    
+
+
+'''
+Q6
+•	Extract all the text from the file and print it
+'''
+
+data=open('C:/Users/admin/Desktop/python/babynames.txt')   
+for line in data:
+    print(line)
+    
+'''
+•	Find and extract the year and print it
+'''
+data=open('C:/Users/admin/Desktop/python/babynames.txt')   
+for line in data:
+    p=re.findall(r'\d{4}',line)
+    if p!=[]:
+       print(p)
+       
+'''
+'•	Extract the names and rank numbers and print them''. 
+'''       
+ra=""
+data=open('C:/Users/admin/Desktop/python/babynames.txt')   
+for line in data:
+    ra=re.findall(r'[A-Z][a-z]*\s?\d{2,3}',line)
+    if ra!=[]:
+       print(ra)
+
+'''
+•	Extract Palindrome string and print them
+'''
+
+ra=""
+data=open('C:/Users/admin/Desktop/python/babynames.txt')   
+for line in data:
+    ra=re.split(" ",line) 
+    for i in ra:
+        if len(i)!=1 :          
+            a=len(i)/2
+            w=i[0:a]
+            y=i[a:len(i)]
+            count=0    
+            for j in range(a):
+                if w[j]==y[-j-1]:
+                    count +=1
+            if count==a:
+                print(i)
+                
+                
+'''
+•	Extract four character word and print it
+
+'''
+ra=""
+data=open('C:/Users/admin/Desktop/python/babynames.txt')
+for line in data:
+    ra=re.findall(r'\s\w{4}\s',line)             
+    print(ra)        
+    
+    
+
+       
